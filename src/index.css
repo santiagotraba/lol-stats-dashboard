@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 10%;
+    --foreground: 220 20% 92%;
+    
+    --card: 230 20% 14%;
+    --card-foreground: 220 20% 92%;
+    
+    --popover: 230 20% 14%;
+    --popover-foreground: 220 20% 92%;
+    
+    --primary: 210 60% 55%;
+    --primary-foreground: 230 25% 10%;
+    
+    --secondary: 230 15% 20%;
+    --secondary-foreground: 220 20% 85%;
+    
+    --muted: 230 15% 18%;
+    --muted-foreground: 220 10% 50%;
+    
+    --accent: 45 60% 60%;
+    --accent-foreground: 230 25% 10%;
+    
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 220 20% 92%;
+    
+    --win: 175 45% 45%;
+    --win-foreground: 230 25% 10%;
+    
+    --loss: 0 55% 45%;
+    --loss-foreground: 220 20% 92%;
+    
+    --border: 230 15% 20%;
+    --input: 230 15% 18%;
+    --ring: 210 60% 55%;
+    
+    --radius: 0.75rem;
+    
+    --surface: 230 20% 14%;
+    --surface-elevated: 230 18% 18%;
+
+    --sidebar-background: 230 20% 12%;
+    --sidebar-foreground: 220 20% 85%;
+    --sidebar-primary: 210 60% 55%;
+    --sidebar-primary-foreground: 230 25% 10%;
+    --sidebar-accent: 230 15% 18%;
+    --sidebar-accent-foreground: 220 20% 85%;
+    --sidebar-border: 230 15% 20%;
+    --sidebar-ring: 210 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-surface {
+    @apply bg-card border border-border/50 shadow-xl;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+  }
+  
+  .glass-surface-hover {
+    @apply glass-surface transition-all duration-300;
+  }
+  
+  .glass-surface-hover:hover {
+    @apply border-primary/20;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px -10px rgba(0,0,0,0.6);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .divider {
+    @apply border-t border-border/30;
+  }
+}
